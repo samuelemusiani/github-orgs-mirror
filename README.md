@@ -7,3 +7,13 @@ get one via the webui. In order to use it on the script you must set the
 ```bash
 export TOKEN_FORGEJO=...
 ```
+
+In order fetch more results from github you need an access token. Export it like
+the forgejo token:
+```bash
+export TOKEN_GITHUB=...
+```
+
+There are some values that need to be changed in the header of the scritp, like
+`GITHUB_ORG`, `FORGEJO_ORG`, `FORGEJO_URL` and `FORGEJO_API_ENDPOIN`.
+
