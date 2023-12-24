@@ -1,11 +1,10 @@
 #!/bin/python3
 
-token = '' # Your forgejo access token
-
 import requests
 import json
+import os
 
-def create_mirror(repo_url, repo_name, repo_owner):
+def create_mirror(repo_url, repo_name, repo_owner, token):
     api_url = 'https://git.students.cs.unibo.it/api/v1/repos/migrate'
     headers = {
             'accept': 'application/json', 
@@ -31,6 +30,12 @@ def create_mirror(repo_url, repo_name, repo_owner):
         print("INFO: successfully created: " + repo_name)
 
 def main():
+    if "TOKEN_FORGEJO" not in os.environ:
+        print("Please provide the forgejo token via the TOKEN_FORGEJO env variable")
+        return -1 
+
+    token = os.environ.get("TOKEN_FORGEJO")
+
     url = 'https://api.github.com/orgs/csunibo/repos'
     headers = {
             'Accept': 'application/vnd.github+json', 
@@ -41,6 +46,8 @@ def main():
 
     base_url = "https://github.com"
     repo_owner = "csunibo"
+
+    return 1
 
     # create_mirror(url, repo_name, repo_owner)
 
