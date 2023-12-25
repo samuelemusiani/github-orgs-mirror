@@ -1,4 +1,4 @@
-Simple python scrypt to mirror al the repositories of a github organization on 
+Simple python scrypt to mirror all the repositories of a github organization on 
 forgejo.
 
 In order to create repos on forgejo you must provide an access token. You can 
